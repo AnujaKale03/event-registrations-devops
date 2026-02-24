@@ -10,11 +10,9 @@ pipeline {
 
         stage('Run Container') {
             steps {
-                bat '''
-                docker stop event-registration-app || exit 0
-                docker rm event-registration-app || exit 0
-                docker run -d --name event-registration-app -p 5000:5000 event-registration-app
-                '''
+                bat 'docker stop event-registration-app || exit 0'
+                bat 'docker rm event-registration-app || exit 0'
+                bat 'docker run -d --name event-registration-app -p 5000:5000 event-registration-app'
             }
         }
     }
